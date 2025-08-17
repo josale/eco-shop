@@ -1,19 +1,18 @@
 -- =========== Base de datos y esquema ===========
 
--- Crea la base de datos (el nombre con guiones requiere comillas)
-CREATE DATABASE "echo-shop-db";
+-- Crea la base de datos sin guiones para evitar comillas en su uso
+CREATE DATABASE eco_shop_db;
 
 -- Cambia la conexión a la base recién creada (psql)
-\connect "echo-shop-db"
+\connect eco_shop_db
 
--- Crea el esquema (usaremos echo_shop como en Echo Shop)
-CREATE SCHEMA IF NOT EXISTS echo_shop;
+-- Crea el esquema principal
+CREATE SCHEMA IF NOT EXISTS eco_shop;
 
--- Configura el search_path a nivel de sesión y de base de datos
-ALTER DATABASE "echo-shop-db" SET search_path = echo_shop, public;
-SET search_path = echo_shop, public;
+-- Configura el search_path a nivel de base y de sesión
+ALTER DATABASE eco_shop_db SET search_path = eco_shop, public;
+SET search_path = eco_shop, public;
 
--- ... existing code ...
 -- =========== DDL: Creación de Tablas ===========
 
 -- Limpieza (opcional, por si se ejecuta varias veces)
